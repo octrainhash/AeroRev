@@ -4799,5 +4799,47 @@ window.__hippo={addFiles:addFiles,files:function(){ return FILES; },render:rende
 })();
 
 </script>
+<style>
+#nkIntro{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:24px;background:radial-gradient(1200px 700px at 30% 20%,rgba(10,108,255,.35),transparent 60%),radial-gradient(900px 600px at 80% 90%,rgba(255,176,32,.25),transparent 60%),rgba(8,12,24,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);animation:nkBg .6s ease both}
+#nkIntro .nk-card{max-width:520px;width:100%;padding:34px 30px 26px;border-radius:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 80px rgba(0,0,0,.45);color:#f2f6ff;text-align:center;font-family:inherit;animation:nkFlip .9s cubic-bezier(.2,.8,.2,1) both}
+#nkIntro .nk-l{opacity:0;transform:translateY(10px);filter:blur(4px);animation:nkIn .9s ease forwards}
+#nkIntro .nk-plane{font-size:44px;line-height:1}
+#nkIntro h1{margin:10px 0 4px;font-size:30px;letter-spacing:.5px}
+#nkIntro .nk-sub{margin:0 0 18px;opacity:.75;font-size:14px}
+#nkIntro .nk-by{font-size:17px;line-height:1.5;margin:0}
+#nkIntro .nk-by b{font-size:20px;background:linear-gradient(90deg,#7fb2ff,#ffd37a);-webkit-background-clip:text;background-clip:text;color:transparent}
+#nkIntro .nk-mail{display:inline-block;margin:6px 0 16px;color:#a9c8ff;text-decoration:none;font-size:15px}
+#nkIntro .nk-for{font-size:15px;opacity:.85;margin:0 0 4px}
+#nkIntro .nk-co{font-size:34px;font-weight:800;letter-spacing:1px;margin:0 0 22px;background:linear-gradient(90deg,#fff,#7fb2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#nkIntro button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:12px 28px;background:linear-gradient(90deg,#0a6cff,#5aa0ff);color:#fff;cursor:pointer;box-shadow:0 10px 26px rgba(10,108,255,.45)}
+#nkIntro.nk-out{animation:nkOut .5s ease forwards}
+#nkIntro .nk-ch{display:inline-block;opacity:0;transform:translateY(14px) scale(.6) rotateX(70deg);filter:blur(8px);animation:nkCh .7s cubic-bezier(.2,.9,.25,1.2) forwards}
+#nkIntro .nk-glow{text-shadow:0 0 18px rgba(127,178,255,.9),0 0 36px rgba(127,178,255,.5)}
+#nkIntro .nk-card{position:relative;overflow:hidden}
+#nkIntro .nk-card::after{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-120%);animation:nkSweep 1.6s ease 4.4s forwards;pointer-events:none}
+#nkIntro .nk-plane{animation:nkFly 1.4s cubic-bezier(.2,.8,.2,1) .2s both}
+#nkIntro button{animation:nkPulse 2s ease-in-out 5s infinite}
+#nkIntro .nk-by b,#nkIntro .nk-co{background:none;-webkit-background-clip:border-box;background-clip:border-box}#nkIntro .nk-by b .nk-ch{color:#ffd37a}#nkIntro .nk-co .nk-ch{color:#e6efff}#nkIntro h1 .nk-ch{color:#fff}
+@keyframes nkCh{60%{opacity:1;filter:blur(0);text-shadow:0 0 22px rgba(255,255,255,.95)}to{opacity:1;transform:none;filter:none}}
+@keyframes nkSweep{to{transform:translateX(120%)}}
+@keyframes nkFly{from{opacity:0;transform:translate(-140px,40px) rotate(-20deg) scale(.6)}to{opacity:1;transform:none}}
+@keyframes nkPulse{0%,100%{box-shadow:0 10px 26px rgba(10,108,255,.45)}50%{box-shadow:0 10px 40px rgba(10,108,255,.85)}}
+@keyframes nkIn{to{opacity:1;transform:none;filter:none}}
+@keyframes nkFlip{from{opacity:0;transform:perspective(900px) rotateX(18deg) translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes nkBg{from{opacity:0}to{opacity:1}}
+@keyframes nkOut{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){#nkIntro *,#nkIntro{animation-duration:.01s!important;animation-delay:0s!important}}
+</style>
+<script>
+(function(){ try{ if(localStorage.getItem("aerorev-intro-seen")) return; }catch(e){}
+  var d=document.createElement("div"); d.id="nkIntro"; d.setAttribute("role","dialog"); d.setAttribute("aria-label","Welcome to AeroRev");
+  var sp=function(t,d0,step){ return t.split('').map(function(c,i){ return c===' '?' ':'<span class="nk-ch" style="animation-delay:'+(d0+i*step).toFixed(2)+'s">'+c+'</span>'; }).join(''); };
+  var L=[['<div class="nk-plane">✈️</div>',.3],['<h1>'+sp('AeroRev',.8,.07)+'</h1>',.7],['<p class="nk-sub">Licence revision for B1 &amp; B2 engineers</p>',1.1],['<p class="nk-by">Built with effort by<br><b class="nk-glow">'+sp('Hamdan bin Navaid',1.9,.06)+'</b></p>',1.7],['<a class="nk-mail" href="mailto:hamdan2k12@gmail.com">hamdan2k12@gmail.com</a>',2.3],['<p class="nk-for">Made especially for</p>',2.9],['<p class="nk-co nk-glow">'+sp('NorTek',3.4,.12)+'</p>',3.3],['<button type="button" id="nkGo">Let\u2019s start</button>',4.0]];
+  d.innerHTML='<div class="nk-card">'+L.map(function(x){ return '<div class="nk-l" style="animation-delay:'+x[1]+'s">'+x[0]+'</div>'; }).join("")+'</div>';
+  var done=function(){ try{ localStorage.setItem("aerorev-intro-seen","1"); }catch(e){} d.classList.add("nk-out"); setTimeout(function(){ d.remove(); },550); };
+  var add=function(){ document.body.appendChild(d); d.querySelector("#nkGo").addEventListener("click",done); };
+  if(document.body) add(); else document.addEventListener("DOMContentLoaded",add);
+})();
+</script>
 </body>
 </html>
